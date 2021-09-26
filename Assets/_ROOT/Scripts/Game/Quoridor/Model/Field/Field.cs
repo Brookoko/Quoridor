@@ -23,7 +23,7 @@ namespace Quoridor.Model
                 for (var j = 0; j < width; j++)
                 {
                     var state = GetState(i, j);
-                    cells[i, j] = new Cell(i, j, state);
+                    cells[i, j] = new Cell(j, i, state);
                 }
             }
         }

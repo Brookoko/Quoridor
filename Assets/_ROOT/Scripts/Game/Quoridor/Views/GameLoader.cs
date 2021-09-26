@@ -1,6 +1,7 @@
 namespace Quoridor.Views
 {
     using Controller;
+    using Model;
     using UnityEngine;
 
     public class GameLoader : MonoBehaviour
@@ -21,7 +22,7 @@ namespace Quoridor.Views
 
         public void CreateNewGame()
         {
-            flow.SwitchToGame();
+            flow.SwitchToGame(new GameOptions(GameMode.VersusBot, BotDifficulty.Easy));
             var gameView = Instantiate(gameViewPrefab, transform);
             gameView.Initialize(gameProvider, gameController);
         }

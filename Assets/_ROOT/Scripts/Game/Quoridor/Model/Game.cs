@@ -1,20 +1,38 @@
 namespace Quoridor.Model
 {
+    using Strategies;
+
     public class Game
     {
         public Field Field { get; }
 
-        public Character Player { get; }
+        public Character FirstPlayer { get; }
 
-        public Bot Bot { get; }
+        public Character SecondPlayer { get; }
 
-        public bool HasFinished => Player.Cell.Y == 0 || Bot.Cell.Y == Field.Height - 1;
+        public bool HasFinished => FirstPlayer.Cell.Y == 0 || SecondPlayer.Cell.Y == Field.Height - 1;
 
-        public Game()
+        public Game(GameOptions gameOptions)
         {
             Field = new Field(9, 9);
-            Player = new Player(Field[4, 0]);
-            Bot = new Bot(Field[4, 8], new RandomMoveStrategy(Field));
+            FirstPlayer = new Player(Field[0, 4], new ManualStrategy(Field));
+            SecondPlayer = CreateSecondPlayer(gameOptions);
+            SecondPlayer = new Bot(Field[8, 4], new RandomMoveStrategy(Field));
+        }
+
+        private Character CreateSecondPlayer(GameOptions gameOptions)
+        {
+            var position = Field[4, 8];
+            if (gameOptions.gameMode == GameMode.VersusPlayer)
+            {
+                return new Player(position, new ManualStrategy(Field));
+            }
+            return new Bot(position, GetStrategyFor(gameOptions.botDifficulty));
+        }
+
+        private MoveStrategy GetStrategyFor(BotDifficulty botDifficulty)
+        {
+            return new RandomMoveStrategy(Field);
         }
     }
 }

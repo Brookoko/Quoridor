@@ -31,9 +31,9 @@ namespace Quoridor.Views
         private void CreateCharacters(Game game)
         {
             player = Instantiate(playerPrefab, transform);
-            player.Initialize(game.Player);
+            player.Initialize(game.FirstPlayer);
             bot = Instantiate(botPrefab, transform);
-            bot.Initialize(game.Bot);
+            bot.Initialize(game.SecondPlayer);
         }
 
         private void OnMoveMade(Field field)

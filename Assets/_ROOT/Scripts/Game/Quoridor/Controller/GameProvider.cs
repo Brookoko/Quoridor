@@ -9,16 +9,16 @@ namespace Quoridor.Controller
 
     public interface IGameStarter
     {
-        Game StartNewGame();
+        Game StartNewGame(GameOptions gameOptions);
     }
 
     public class GameProvider : IGameProvider, IGameStarter
     {
         public Game Game { get; private set; }
 
-        public Game StartNewGame()
+        public Game StartNewGame(GameOptions gameOptions)
         {
-            Game = new Game();
+            Game = new Game(gameOptions);
             return Game;
         }
     }

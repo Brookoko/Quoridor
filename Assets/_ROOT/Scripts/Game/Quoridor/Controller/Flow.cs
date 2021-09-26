@@ -1,5 +1,7 @@
 namespace Quoridor.Controller
 {
+    using Model;
+
     public class Flow
     {
         private readonly IGameController gameController;
@@ -16,9 +18,9 @@ namespace Quoridor.Controller
             uiController.ShowHomeScreen();
         }
 
-        public void SwitchToGame()
+        public void SwitchToGame(GameOptions gameOptions)
         {
-            gameController.StartGame();
+            gameController.StartGame(gameOptions);
             uiController.ShowGameScreen();
             gameController.OnGameEnd += OnGameEnd;
         }
