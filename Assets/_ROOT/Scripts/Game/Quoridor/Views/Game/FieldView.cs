@@ -24,10 +24,14 @@ namespace Quoridor.Views
 
         public void Setup(Field field)
         {
-            foreach (var cell in field.Cells)
+            for (var i = 0; i < field.Height; i++)
             {
-                var cellView = CreateViewFor(cell, field);
-                cells.Add(cellView);
+                for (var j = 0; j < field.Width; j++)
+                {
+                    var cell = field[i, j];
+                    var cellView = CreateViewFor(cell, field);
+                    cells.Add(cellView);
+                }
             }
         }
 

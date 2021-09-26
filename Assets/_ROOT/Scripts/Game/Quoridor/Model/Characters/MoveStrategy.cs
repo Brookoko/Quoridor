@@ -22,7 +22,7 @@ namespace Quoridor.Model
 
         public override Move FindMoveFor(Character character)
         {
-            return new CharacterMove(field, character, field.Cells[0, 0]);
+            return new CharacterMove(field, character, field[0, 0]);
         }
     }
 }
