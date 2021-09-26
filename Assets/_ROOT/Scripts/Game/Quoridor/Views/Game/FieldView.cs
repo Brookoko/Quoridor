@@ -1,6 +1,6 @@
 namespace Quoridor.Views
 {
-    using J2N.Collections.Generic;
+    using System.Collections.Generic;
     using Model;
     using UnityEngine;
 
@@ -19,7 +19,7 @@ namespace Quoridor.Views
         [SerializeField]
         private float padding;
 
-        private readonly List<CellView> cells = new List<CellView>();
+        private readonly List<CellView> cells = new ();
 
         public void Setup(Field field)
         {

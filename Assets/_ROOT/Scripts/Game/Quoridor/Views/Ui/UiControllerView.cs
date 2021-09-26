@@ -1,11 +1,14 @@
-namespace Quoridor.Views
+namespace Quoridor.Views.Ui
 {
+    using Windows;
     using Controller;
-    using Debug;
     using UnityEngine;
 
     public class UiControllerView : MonoBehaviour, IUiController
     {
+        [SerializeField]
+        private UiBuilder uiBuilder;
+
         private GameLoader gameLoader;
 
         public void Initialize(IUiControllerProxy uiControllerProxy, GameLoader gameLoader)
@@ -14,18 +17,20 @@ namespace Quoridor.Views
             uiControllerProxy.Wrap(this);
         }
 
-        [EditorButton]
         public void ShowHomeScreen()
         {
-            gameLoader.CreateNewGame();
+            var homeWindow = uiBuilder.CreateWindow<HomeWindow>();
+            homeWindow.Initialize(gameLoader);
         }
 
         public void ShowGameScreen()
         {
+            var gameWindow = uiBuilder.CreateWindow<GameWindow>();
         }
 
         public void ShowResultScreen()
         {
+            var resultWindow = uiBuilder.CreateWindow<ResultWindow>();
         }
     }
 }

@@ -1,6 +1,7 @@
 namespace Quoridor.Views
 {
     using Controller;
+    using Ui;
     using UnityEngine;
 
     public class GameRoot : MonoBehaviour
@@ -16,6 +17,7 @@ namespace Quoridor.Views
             var gameContainer = new GameContainer();
             gameLoader.Initialize(gameContainer.Flow, gameContainer.GameProvider, gameContainer.GameController);
             uiControllerView.Initialize(gameContainer.UiController, gameLoader);
+            gameContainer.Flow.SwitchToHome();
         }
     }
 }

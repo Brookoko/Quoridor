@@ -1,3 +1,6 @@
 {
-  "name": "Game.Quoridor"
+  "name": "Game.Quoridor",
+  "references": [
+    "Game.Ui"
+  ]
 }

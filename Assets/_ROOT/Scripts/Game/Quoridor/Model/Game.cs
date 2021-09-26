@@ -4,7 +4,7 @@ namespace Quoridor.Model
     {
         public Field Field { get; }
 
-        public Player Player { get; }
+        public Character Player { get; }
 
         public Bot Bot { get; }
 
