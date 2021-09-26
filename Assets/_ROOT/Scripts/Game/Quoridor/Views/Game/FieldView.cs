@@ -1,6 +1,7 @@
 namespace Quoridor.Views
 {
     using System.Collections.Generic;
+    using System.Linq;
     using Model;
     using UnityEngine;
 
@@ -46,6 +47,12 @@ namespace Quoridor.Views
             {
                 cellView.UpdateView();
             }
+        }
+
+        public Vector3 GetPositionFor(Cell cell)
+        {
+            var cellView = cells.First(c => c.Cell == cell);
+            return cellView.transform.position;
         }
     }
 }

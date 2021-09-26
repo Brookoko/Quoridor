@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fieldControllerView: {fileID: 6261514745661952128}
+  playerPrefab: {fileID: 2682900181285276636, guid: ebb8059334fa3844cbfb204dee4db489, type: 3}
+  botPrefab: {fileID: 2682900181285276636, guid: 7cd6c95ce1bb6ee498a44791cbfdf27d, type: 3}
 --- !u!1 &6261514745661952133
 GameObject:
   m_ObjectHideFlags: 0

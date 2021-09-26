@@ -13,8 +13,8 @@ namespace Quoridor.Model
         public Game()
         {
             Field = new Field(9, 9);
-            Player = new Player(Field[0, 0]);
-            Bot = new Bot(Field[0, 0], new RandomMoveStrategy(Field));
+            Player = new Player(Field[4, 0]);
+            Bot = new Bot(Field[4, 8], new RandomMoveStrategy(Field));
         }
     }
 }
