@@ -19,6 +19,7 @@ namespace Quoridor.Views.Ui.Windows
         private void OnPlayButtonClick()
         {
             gameLoader.CreateNewGame();
+            Close();
         }
     }
 }

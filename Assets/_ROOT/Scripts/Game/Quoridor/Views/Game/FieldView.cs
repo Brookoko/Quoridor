@@ -19,22 +19,23 @@ namespace Quoridor.Views
         [SerializeField]
         private float padding;
 
-        private readonly List<CellView> cells = new ();
+        private readonly List<CellView> cells = new();
 
         public void Setup(Field field)
         {
             foreach (var cell in field.Cells)
             {
-                var cellView = CreateViewFor(cell);
+                var cellView = CreateViewFor(cell, field);
                 cells.Add(cellView);
             }
         }
 
-        private CellView CreateViewFor(Cell cell)
+        private CellView CreateViewFor(Cell cell, Field field)
         {
             var cellView = Instantiate(cellPrefab, cellParent);
             cellView.transform.localScale = Vector3.one * cellSize;
-            cellView.transform.localPosition = new Vector3(cell.X, 0, cell.Y) * (cellSize + padding);
+            var mapPosition = new Vector3(cell.X - field.Width / 2, 0, cell.Y - field.Height / 2);
+            cellView.transform.localPosition = mapPosition * (cellSize + padding);
             cellView.Initialize(cell);
             return cellView;
         }
